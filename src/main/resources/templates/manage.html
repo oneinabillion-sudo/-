@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>支出管理ページ</title>
+</head>
+<body>
+    <h1>支出管理ページ</h1>
+
+    <form th:action="@{findAll}" method="get">
+        <button type="submit">一覧表示</button>
+    </form>
+<table border="1">
+    <tr><th>日付</th><th>費目</th><th>メモ</th><th>入金額</th><th>出金額</th></tr>
+    <tr th:each="alldata : ${allData}">
+        <td th:text="${alldata.record_date}"></td>
+        <td th:text="${alldata.expense_name}"></td>
+        <td th:text="${alldata.memo}"></td>
+        <td th:text="${alldata.deposit}"></td>
+        <td th:text="${alldata.withdraw}"></td>
+    </tr>
+</table>
+
+
+</body>
+</html>

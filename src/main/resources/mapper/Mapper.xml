@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.expense.mapper.ExpenseMapper">
+
+<update id="createRecord">
+    CREATE TABLE IF NOT EXISTS expense_record (
+        record_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+        record_date DATE,
+        expense_id INTEGER,
+        memo VARCHAR(80),
+        deposit INTEGER,
+        withdraw INTEGER,
+        FOREIGN KEY (expense_id) REFERENCES expense_category(expense_id)
+    )
+</update>
+
+<update id="createCategory">
+    CREATE TABLE IF NOT EXISTS expense_category (
+        expense_id INTEGER PRIMARY KEY,
+        expense_name VARCHAR(20)
+
+    )
+</update>
+
+
+<select id="findAll" resultType="com.example.expense.entity.ExpenseRecords">
+    SELECT r.record_date, c.expense_name, r.memo, r.deposit, r.withdraw 
+    FROM expense_record AS r
+    LEFT JOIN expense_category AS c
+    ON r.expense_id = c.expense_id
+    ORDER BY r.record_date;
+</select>
+
+
+</mapper>
