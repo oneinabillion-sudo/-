@@ -17,7 +17,7 @@ jobs:
 
         with:
           java-version: '25'
-          distribution: 'adoptium'
+          distribution: 'temurin'
 
       - name: テスト実行
         run: ./mvnw test
