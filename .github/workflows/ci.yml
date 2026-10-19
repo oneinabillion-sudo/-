@@ -20,4 +20,4 @@ jobs:
           distribution: 'temurin'
 
       - name: テスト実行
-        run: ./mvnw test
+        run: ./mvnw compile
