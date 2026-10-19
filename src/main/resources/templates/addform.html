@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>追加ページ</title>
+</head>
+<div>
+<body>
+    <h1>追加ページ</h1><br>
+
+    <div>
+        <form th:action="@{add}" method="post">
+            <div>
+                <label>
+                <input type="radio" name="deposit" value="true">
+                <strong>入金</strong>
+                </label>
+                <label>
+                <input type="radio" name="withdraw" value="false">
+                <strong>出金</strong>
+                </label>
+            </div>   
+        <br><br>
+        
+        <button type="submit">追加する</button>
+        </form>
+    </div>
+    
+
+
+</body>
+</div>
+</html>

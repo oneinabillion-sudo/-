@@ -1,0 +1,23 @@
+name: ConfirmBuild
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: コードのチェックアウト
+        uses: actions/checkout@v4
+        
+      - name: JDKのセットアップ
+        uses: action/setup-java@v4
+
+        with:
+          java-version: '25'
+          distribution: 'adoptium'
+
+      - name: テスト実行
+        run: ./mvnw test

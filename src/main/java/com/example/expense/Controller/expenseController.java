@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
 
 import com.example.expense.service.ExpenseServise;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 
@@ -31,5 +33,11 @@ public class expenseController {
 
         return "manage";
     }
+
+    @GetMapping("/jump_add_page")
+    public String getAddForm() {
+        return "addform";
+    }
+    
     
 }

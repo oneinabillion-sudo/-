@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <title>支出管理ページ</title>
 </head>
+<div>
 <body>
-    <h1>支出管理ページ</h1>
+    <h1>支出管理ページ</h1><br>
+
+    <form th:action="@{jump_add_page}" method="get"><!--もしかしてpostだったら入力途中でも一度戻ってから再度入力途中のページに戻っても入力してたデータがそのまま残る感じ？-->
+
+        <button type="submit">追加ページ</button>
+    </form><br>
 
     <form th:action="@{findAll}" method="get">
         <button type="submit">一覧表示</button>
@@ -20,7 +26,6 @@
         <td th:text="${alldata.withdraw}"></td>
     </tr>
 </table>
-
-
 </body>
+</div>
 </html>
